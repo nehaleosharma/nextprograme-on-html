@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Animation Playground</title>
+
+<!-- Animate.css -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<style>
+body {
+  background:#111;
+  color:white;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  padding-bottom:50px;
+}
+
+h1 {
+  margin-top:20px;
+}
+
+/* SECTION TITLES */
+.section-title {
+  margin-top:40px;
+  font-size:20px;
+  text-transform:uppercase;
+  color:#00eaff;
+}
+
+/* ---------------------------------
+   1. More Interesting Hover Transition
+----------------------------------*/
+.box1 {
+  width:120px;
+  height:120px;
+  background:#2196f3;
+  margin:20px auto;
+  border-radius:10px;
+  transition:0.5s;
+}
+.box1:hover {
+  transform:scale(1.3) rotate(10deg);
+  background:#00ffcc;
+}
+
+/* ---------------------------------
+   2. Stylish Transform Example
+----------------------------------*/
+.box2 {
+  width:120px;
+  height:120px;
+  background:#ff5722;
+  margin:20px auto;
+  border-radius:10px;
+  transform:rotate(-25deg);
+  box-shadow:0 0 20px #ff5722;
+}
+
+/* ---------------------------------
+   3. Moving Box with Keyframes
+----------------------------------*/
+@keyframes slideMove {
+  0% { left:0; }
+  50% { left:180px; }
+  100% { left:0; }
+}
+
+.box3 {
+  width:100px;
+  height:100px;
+  background:#ffd700;
+  margin:30px auto;
+  position:relative;
+  border-radius:50%;
+  animation: slideMove 2.5s infinite ease-in-out;
+  box-shadow:0 0 30px #ffd700;
+}
+
+/* ---------------------------------
+   4. Multiple Animations: Glow + Fade + Scale
+----------------------------------*/
+@keyframes glow {
+  0% { box-shadow:0 0 5px #9c27b0; }
+  100% { box-shadow:0 0 30px #e040fb; }
+}
+
+@keyframes pulse {
+  0% { transform:scale(0.8); }
+  100% { transform:scale(1.2); }
+}
+
+@keyframes fade {
+  0% { opacity:0.4; }
+  100% { opacity:1; }
+}
+
+.box4 {
+  width:130px;
+  height:130px;
+  background:#9c27b0;
+  margin:30px auto;
+  border-radius:20px;
+  animation: glow 1.5s infinite alternate,
+             pulse 2s infinite alternate,
+             fade 3s infinite alternate;
+}
+
+/* ---------------------------------
+   5. 3D Cube (2 Faces)
+----------------------------------*/
+.scene {
+  width:150px;
+  height:150px;
+  margin:40px auto;
+  perspective:600px;
+}
+
+.cube {
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  animation: rotateCube 4s infinite linear;
+}
+
+@keyframes rotateCube {
+  from { transform:rotateY(0deg); }
+  to { transform:rotateY(360deg); }
+}
+
+.face {
+  width:150px;
+  height:150px;
+  position:absolute;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  font-weight:bold;
+  border:2px solid white;
+  border-radius:10px;
+}
+
+/* front */
+.face1 {
+  background:#4caf50;
+  transform:translateZ(75px);
+}
+
+/* right */
+.face2 {
+  background:#f44336;
+  transform:rotateY(90deg) translateZ(75px);
+}
+</style>
+</head>
+<body>
+
+<!-- Animate.css Heading -->
+<h1 class="animate__animated animate__lightSpeedInLeft">
+  CSS Animation Playground
+</h1>
+
+<!-- 1 -->
+<div class="section-title">1. Hover Transition Effect</div>
+<div class="box1"></div>
+
+<!-- 2 -->
+<div class="section-title">2. Stylish Transform</div>
+<div class="box2"></div>
+
+<!-- 3 -->
+<div class="section-title">3. Moving Ball Animation</div>
+<div class="box3"></div>
+
+<!-- 4 -->
+<div class="section-title">4. Magical Multi-Animation Box</div>
+<div class="box4"></div>
+
+<!-- 5 -->
+<div class="section-title">5. Rotating 3D Mini Cube</div>
+<div class="scene">
+  <div class="cube">
+    <div class="face face1">Front</div>
+    <div class="face face2">Side</div>
+  </div>
+</div>
+
+</body>
+</html>
